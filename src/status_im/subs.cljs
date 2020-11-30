@@ -2407,3 +2407,9 @@
    (first (filter #(notifications/preference= % {:service    "wallet"
                                                  :event      "transaction"
                                                  :identifier "all"}) pref))))
+
+(re-frame/reg-sub
+ :profile/has-picture
+ :<- [:multiaccount]
+ (fn [multiaccount]
+   (pos? (count (get multiaccount :images)))))

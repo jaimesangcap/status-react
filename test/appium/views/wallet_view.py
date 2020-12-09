@@ -493,7 +493,6 @@ class WalletView(BaseView):
             elif self.asset_by_name(asset).is_element_present() and self.get_asset_amount_by_name(asset) == initial_balance:
                 counter += 10
                 time.sleep(10)
-                self.put_app_to_background_and_back()
                 self.driver.info('Waiting %s seconds for %s to update' % (counter,asset))
             elif not self.asset_by_name(asset).is_element_present(10):
                 counter += 10
